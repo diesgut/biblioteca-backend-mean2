@@ -6,8 +6,8 @@ function getCategoria(req, res) {
   var categoriaId = req.params.id;
   console.log("Categoria find by id " + categoriaId);
   //findById es un metodo de mongoose
-  Categoria.findById(textoId, (err, categoria) => {
-    console.log("Categoria " + textoId);
+  Categoria.findById(categoriaId, (err, categoria) => {
+    console.log("Categoria " + categoriaId);
     if (err) {
       console.log("#Error " + err);
 
@@ -55,7 +55,8 @@ function getCategorias(req, res) {
 function saveCategoria(req, res) {
   var categoria = new Categoria();
   var params = req.body;
-
+  console.log('save categoria ');
+  console.dir(params);
   categoria.nombre = params.nombre;
   categoria.tipo = params.tipo;
   categoria.descripcion = params.descripcion;
@@ -72,7 +73,7 @@ function saveCategoria(req, res) {
         });
       } else {
         res.status(200).send({
-          categoriaStored
+          categoria:categoriaStored
         });
       }
     }
