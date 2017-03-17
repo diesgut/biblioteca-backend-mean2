@@ -98,7 +98,7 @@ function updateCategoria(req, res) {
         });
       } else {
         res.status(200).send({
-          texto: categoriaUpdated
+          categoria: categoriaUpdated
         });
       }
     }
